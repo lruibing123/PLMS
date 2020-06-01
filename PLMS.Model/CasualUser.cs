@@ -9,17 +9,10 @@ namespace PLMS.Model
     [Serializable]
     public class CasualUser : User
     {
-        public static int cid = 1;
-
-        public CasualUser(string licensePlateNum, string id = null)
+        public CasualUser(string licensePlateNum)
             : base(licensePlateNum)
-        {
-            UserId = id != null ? id : GetNewID();            
-        }
-
-        protected override string GetNewID()
-        {
-            return string.Format("C00{0}", cid++);
+        {      
+            UserId = "C" + IdCreator.Default.Create();
         }
     }
 }

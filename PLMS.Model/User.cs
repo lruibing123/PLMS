@@ -15,7 +15,6 @@ namespace PLMS.Model
         public User(string licensePlateNum)
         {
             LicensePlateNum = licensePlateNum;
-        }      
-        protected abstract string GetNewID();
+        }
     }
 }

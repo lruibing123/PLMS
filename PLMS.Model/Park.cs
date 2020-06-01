@@ -13,11 +13,12 @@ namespace PLMS.Model
         public string UserId { get; }
         public string LicensePlateNum { get; }
         public DateTime EntryTime { get; }
-        public DateTime LeaveTime { get; set; }        
+        public DateTime LeaveTime { get; set; }
+        public bool IsFormal { get { return UserId[0] == 'F'; } }
 
         public Park(string userId, string licensePlateNum)
         {
-            ParkId = Guid.NewGuid().ToString();
+            ParkId = "P" + IdCreator.Default.Create();
             UserId = userId;
             LicensePlateNum = licensePlateNum;
             EntryTime = DateTime.Now;

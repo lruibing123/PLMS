@@ -16,11 +16,11 @@ namespace PLMS.Model
         public string Details { get; }
         public float Money { get; }        
         public DateTime CreateTime { get; }
-        public bool IsCasual { get { return UserId[0] == 'C'; } }
+        public bool IsFormal { get { return UserId[0] == 'F'; } }
 
         public Order(string userId, string licensePlateNum, float money, string details = null, string parkId = null)
         {
-            OrderId = Guid.NewGuid().ToString();
+            OrderId = "O" + IdCreator.Default.Create();
             UserId = userId;
             LicensePlateNum = licensePlateNum;
             ParkId = parkId;            
