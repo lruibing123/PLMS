@@ -24,6 +24,7 @@ namespace PLMS.BLL
 		protected static OrderDAL orders;
 
 		protected static double halfHourPrice = double.Parse(ConfigurationManager.AppSettings["HalfHourPrice"].ToString());
+		protected static int parkingSpotNum = int.Parse(ConfigurationManager.AppSettings["ParkingSpotNum"].ToString());
 		protected static Dictionary<int, float> prices = new Dictionary<int, float> {
 			{3, float.Parse(ConfigurationManager.AppSettings["ThreeMonthsPrice"].ToString())},
 			{12, float.Parse(ConfigurationManager.AppSettings["OneYearPrice"].ToString())}

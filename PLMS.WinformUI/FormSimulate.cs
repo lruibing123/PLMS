@@ -34,7 +34,8 @@ namespace PLMS.WinformUI
                 {
                     string result;
                     label1.Text = VehicleBLL.VehicleEnter(licemsePlateNum, out result) ? "欢迎进入" : "";
-                    label2.Text = result;                    
+                    label2.Text = result;
+                    label3.Text = AdminBLL.GetActiveParkNum() + " / " + AdminBLL.GetParkingSpotNum();
                     FormManage form = (FormManage)Owner;
                     form.Refresh();                    
                     Thread.Sleep(8000);
@@ -60,6 +61,7 @@ namespace PLMS.WinformUI
                     string result;
                     label1.Text = VehicleBLL.VehicleLeave(licemsePlateNum, out result) ? "欢迎离开" : "";
                     label2.Text = result;
+                    label3.Text = AdminBLL.GetActiveParkNum() + " / " + AdminBLL.GetParkingSpotNum();
                     BaseBLL.SaveALL();
                     FormManage form = (FormManage)Owner;
                     form.Refresh();                    

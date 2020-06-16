@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PLMS.BLL
+namespace PLMS.Model
 {
     public class Vertexes_locationItem
     {

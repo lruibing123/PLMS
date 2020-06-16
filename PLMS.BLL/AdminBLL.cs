@@ -123,6 +123,16 @@ namespace PLMS.BLL
             return parks.GetParkById(parkId);
         }
 
+        public static int GetActiveParkNum()
+        {
+            return parks.GetAllParks().Count(p => p.LeaveTime == DateTime.MinValue);
+        }
+
+        public static int GetParkingSpotNum()
+        {
+            return parkingSpotNum;
+        }
+
         public static Park GetParkByUserId(string userId)
         {
             List<Park> parks1 = parks.GetAllParks().Where(p => p.UserId == userId).ToList();
@@ -137,23 +147,6 @@ namespace PLMS.BLL
         public static bool RemoveParkById(string parkId)
         {
             return parks.RemoveParkById(parkId);
-        }
-        #endregion
-
-        #region 停车位
-        public static bool AddParkingSpot(ParkingSpot parkingSpot)
-        {
-            return parkingSpots.AddParkingSpot(parkingSpot);
-        }
-
-        public static ParkingSpot GetParkingSpotById(string parkingSpotId)
-        {
-            return parkingSpots.GetParkingSpotById(parkingSpotId);
-        }
-
-        public static bool RemoveParkingSpotById(string parkingSpotId)
-        {
-            return parkingSpots.RemoveParkSpotById(parkingSpotId);
         }
         #endregion
 
