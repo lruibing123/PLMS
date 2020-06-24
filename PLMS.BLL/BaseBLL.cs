@@ -20,7 +20,6 @@ namespace PLMS.BLL
 		protected static CasualUserDAL casualUsers;
 		protected static FormalUserDAL formalUsers;
 		protected static ParkDAL parks;
-		protected static ParkingSpotDAL parkingSpots;
 		protected static OrderDAL orders;
 
 		protected static double halfHourPrice = double.Parse(ConfigurationManager.AppSettings["HalfHourPrice"].ToString());
@@ -43,7 +42,6 @@ namespace PLMS.BLL
 			casualUsers = DataFileAccess.GetCasualUsers();
 			formalUsers = DataFileAccess.GetFormalUsers();
 			parks = DataFileAccess.GetParks();
-			//parkingSpots = DataFileAccess.GetParkingSpots();
 			orders = DataFileAccess.GetOrders();
 		}
 
@@ -56,7 +54,6 @@ namespace PLMS.BLL
 			DataFileAccess.SaveCasualUsers(casualUsers);
 			DataFileAccess.SaveFormalUsers(formalUsers);
 			DataFileAccess.SaveParks(parks);
-			//DataFileAccess.SaveParkingSpots(parkingSpots);
 			DataFileAccess.SaveOrders(orders);
 		}
 	}

@@ -147,9 +147,10 @@
             this.Controls.Add(this.videoSourcePlayer1);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FormSimulate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Simulate";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSimulate_FormClosing);
             this.Load += new System.EventHandler(this.FormSimulate_Load);
             this.ResumeLayout(false);

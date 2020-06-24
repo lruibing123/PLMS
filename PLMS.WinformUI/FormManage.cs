@@ -92,7 +92,17 @@ namespace PLMS.WinformUI
 
         private void FormManage_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            MessageBoxButtons messButton = MessageBoxButtons.OKCancel;
+            DialogResult dr = MessageBox.Show("确认登出，取消直接退出", "您要登出吗", messButton);
+            if (dr == DialogResult.OK)
+            {
+                Owner.Show();
+            }
+            else
+            {
+                Dispose();
+                Application.Exit();
+            }            
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -230,6 +240,19 @@ namespace PLMS.WinformUI
             }
         }
 
+        private void DeleteAdmin(DataGridView dataGridView)
+        {
+            for (int i = dataGridView.SelectedRows.Count - 1; i >= 0; i--)
+            {
+                string adminId = dataGridView.SelectedRows[0].Cells[0].Value.ToString();
+                if (AdminBLL.RemoveAdminById(adminId))
+                    Refresh();
+                else
+                    MessageBox.Show("删除失败");
+            }
+        }
+        #endregion
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.Columns[e.ColumnIndex].Name == "ColumnButtonDelay")
@@ -250,17 +273,16 @@ namespace PLMS.WinformUI
             }
         }
 
-        private void DeleteAdmin(DataGridView dataGridView)
+        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            for (int i = dataGridView.SelectedRows.Count - 1; i >= 0; i--)
+            if (dataGridView5.Columns[e.ColumnIndex].Name == "ColumnButtonReset")
             {
-                string adminId = dataGridView.SelectedRows[0].Cells[0].Value.ToString();
-                if (AdminBLL.RemoveAdminById(adminId))
+                string adminId = dataGridView5.Rows[e.RowIndex].Cells[0].Value.ToString();
+                if (AdminBLL.ResetErrorNum(adminId))
                     Refresh();
                 else
-                    MessageBox.Show("删除失败");
+                    MessageBox.Show("重置失败请重试！");
             }
         }
-        #endregion
     }
 }

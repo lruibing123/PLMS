@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace PLMS.DAL
 {
@@ -29,8 +31,26 @@ namespace PLMS.DAL
 		{
 			if (admins.Exists(a => a.Id == admin.Id))
 				return false;
+			admin.Password = Md5Hash(admin.Password);
 			admins.Add(admin);
 			return true;
+		}
+
+		/// <summary>
+		/// 32位MD5加密
+		/// </summary>
+		/// <param name="input"></param>
+		/// <returns></returns>
+		private static string Md5Hash(string input)
+		{
+			MD5CryptoServiceProvider md5Hasher = new MD5CryptoServiceProvider();
+			byte[] data = md5Hasher.ComputeHash(Encoding.Default.GetBytes(input));
+			StringBuilder sBuilder = new StringBuilder();
+			for (int i = 0; i < data.Length; i++)
+			{
+				sBuilder.Append(data[i].ToString("x2"));
+			}
+			return sBuilder.ToString();
 		}
 
 		/// <summary>

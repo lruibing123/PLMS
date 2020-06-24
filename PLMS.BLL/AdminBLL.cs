@@ -30,6 +30,19 @@ namespace PLMS.BLL
         {
             return admins.GetAdmins();
         }
+
+        public static bool ResetErrorNum(string adminId)
+        {
+            try
+            {
+                admins.GetAdmins().FirstOrDefault(a => a.Id == adminId).ErrorNum = 0;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         #endregion
 
         #region 正式会员

@@ -38,6 +38,7 @@ namespace PLMS.WinformUI
             string errorMsg;
             if (LoginBLL.Login(textBox1.Text, textBox2.Text, !radioButton1.Checked, out errorMsg))
             {
+                textBox2.Text = "";
                 FormManage form = new FormManage(radioButton2.Checked);
                 form.Show(this);
                 Hide();

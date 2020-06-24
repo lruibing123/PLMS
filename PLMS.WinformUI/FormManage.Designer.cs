@@ -66,14 +66,15 @@
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonFind = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.textBoxFindStr = new System.Windows.Forms.TextBox();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnButtonReset = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -260,7 +261,7 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "UserId";
-            this.dataGridViewTextBoxColumn1.FillWeight = 133.9572F;
+            this.dataGridViewTextBoxColumn1.FillWeight = 92.25932F;
             this.dataGridViewTextBoxColumn1.HeaderText = "Id";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -269,7 +270,7 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "LicensePlateNum";
-            this.dataGridViewTextBoxColumn2.FillWeight = 133.9572F;
+            this.dataGridViewTextBoxColumn2.FillWeight = 92.25932F;
             this.dataGridViewTextBoxColumn2.HeaderText = "车牌号";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -277,7 +278,7 @@
             // 
             // ColumnButtonUp
             // 
-            this.ColumnButtonUp.FillWeight = 32.08556F;
+            this.ColumnButtonUp.FillWeight = 20F;
             this.ColumnButtonUp.HeaderText = "操作";
             this.ColumnButtonUp.MinimumWidth = 6;
             this.ColumnButtonUp.Name = "ColumnButtonUp";
@@ -502,7 +503,8 @@
             this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column17,
             this.Column18,
-            this.Column19});
+            this.Column19,
+            this.ColumnButtonReset});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -519,30 +521,7 @@
             this.dataGridView5.RowTemplate.Height = 27;
             this.dataGridView5.Size = new System.Drawing.Size(792, 380);
             this.dataGridView5.TabIndex = 1;
-            // 
-            // Column17
-            // 
-            this.Column17.DataPropertyName = "Id";
-            this.Column17.HeaderText = "Id";
-            this.Column17.MinimumWidth = 6;
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            // 
-            // Column18
-            // 
-            this.Column18.DataPropertyName = "Password";
-            this.Column18.HeaderText = "Password";
-            this.Column18.MinimumWidth = 6;
-            this.Column18.Name = "Column18";
-            this.Column18.ReadOnly = true;
-            // 
-            // Column19
-            // 
-            this.Column19.DataPropertyName = "ErrorNum";
-            this.Column19.HeaderText = "ErrorNum";
-            this.Column19.MinimumWidth = 6;
-            this.Column19.Name = "Column19";
-            this.Column19.ReadOnly = true;
+            this.dataGridView5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
             // 
             // buttonFind
             // 
@@ -614,6 +593,43 @@
             this.textBoxFindStr.Size = new System.Drawing.Size(100, 30);
             this.textBoxFindStr.TabIndex = 5;
             // 
+            // Column17
+            // 
+            this.Column17.DataPropertyName = "Id";
+            this.Column17.FillWeight = 30F;
+            this.Column17.HeaderText = "Id";
+            this.Column17.MinimumWidth = 6;
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            // 
+            // Column18
+            // 
+            this.Column18.DataPropertyName = "Password";
+            this.Column18.FillWeight = 62.03209F;
+            this.Column18.HeaderText = "Password";
+            this.Column18.MinimumWidth = 6;
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            // 
+            // Column19
+            // 
+            this.Column19.DataPropertyName = "ErrorNum";
+            this.Column19.FillWeight = 25F;
+            this.Column19.HeaderText = "ErrorNum";
+            this.Column19.MinimumWidth = 6;
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
+            // 
+            // ColumnButtonReset
+            // 
+            this.ColumnButtonReset.FillWeight = 15F;
+            this.ColumnButtonReset.HeaderText = "操作";
+            this.ColumnButtonReset.MinimumWidth = 6;
+            this.ColumnButtonReset.Name = "ColumnButtonReset";
+            this.ColumnButtonReset.ReadOnly = true;
+            this.ColumnButtonReset.Text = "清零";
+            this.ColumnButtonReset.UseColumnTextForButtonValue = true;
+            // 
             // FormManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -656,9 +672,6 @@
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.DataGridView dataGridView5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.Button buttonFind;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonDelete;
@@ -673,9 +686,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnButtonDelay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnButtonUp;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
@@ -685,5 +695,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnButtonUp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewButtonColumn ColumnButtonReset;
     }
 }

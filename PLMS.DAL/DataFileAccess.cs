@@ -156,52 +156,6 @@ namespace PLMS.DAL
 		}
 
 		/// <summary>
-		/// 读取停车位
-		/// </summary>
-		/// <returns></returns>
-		public static ParkingSpotDAL GetParkingSpots()
-		{
-			ParkingSpotDAL parkingSpots;
-			if (File.Exists(parkingSpotDocPath))
-			{
-				using (FileStream fs = new FileStream(parkingSpotDocPath, FileMode.Open, FileAccess.Read))
-				{
-					BinaryFormatter bf = new BinaryFormatter();
-					parkingSpots = (ParkingSpotDAL)bf.Deserialize(fs);
-				}
-			}
-			else
-			{
-				using (FileStream fs = new FileStream(parkingSpotDocPath, FileMode.CreateNew, FileAccess.Write))
-				{
-					BinaryFormatter bf = new BinaryFormatter();
-					parkingSpots = new ParkingSpotDAL();
-					int t = 10;
-					while (t-- == 0)
-					{
-						ParkingSpot parkingSpot = new ParkingSpot();
-						parkingSpots.AddParkingSpot(parkingSpot);
-					}					
-					bf.Serialize(fs, parkingSpots);
-				}
-			}
-			return parkingSpots;
-		}
-
-		/// <summary>
-		/// 保存停车位
-		/// </summary>
-		/// <param name="parkingSpots"></param>
-		public static void SaveParkingSpots(ParkingSpotDAL parkingSpots)
-		{
-			using (FileStream fs = new FileStream(parkingSpotDocPath, FileMode.Create, FileAccess.Write))
-			{
-				BinaryFormatter bf = new BinaryFormatter();
-				bf.Serialize(fs, parkingSpots);
-			}
-		}
-
-		/// <summary>
 		/// 读取停车信息
 		/// </summary>
 		/// <returns></returns>

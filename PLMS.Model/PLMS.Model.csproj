@@ -46,7 +46,6 @@
     <Compile Include="Park.cs" />
     <Compile Include="CasualUser.cs" />
     <Compile Include="Order.cs" />
-    <Compile Include="ParkingSpot.cs" />
     <Compile Include="Root.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

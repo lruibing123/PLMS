@@ -23,6 +23,17 @@ namespace PLMS.WinformUI
             CheckForIllegalCrossThreadCalls = false;
         }
 
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
+
         private void EnterScan()
         {
             while (isEnter)
@@ -151,7 +162,6 @@ namespace PLMS.WinformUI
             videoSourcePlayer1.Stop();
             source.Stop();
             if (bitmap != null) bitmap.Dispose();
-            Application.Exit();
         }
     }
 }
